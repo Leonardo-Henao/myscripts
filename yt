@@ -1,0 +1,36 @@
+#!/bin/bash
+
+URL=$1
+PATH_DOWNLOAD="yt-downloads"
+DECOR="+----------------------------------+"
+
+cd ~/Descargas
+# con -d verificamos si el archivo es un directorio y si existe
+if [[ -d $PATH_DOWNLOAD ]]
+then
+ echo ""
+else
+ mkdir "yt-downloads"
+fi
+
+# con -z devuelve 0 si la cantidad de caracteres de una cadena es 0
+if [[ -z $URL ]]
+then
+ echo $DECOR
+ echo "| Utiliza (yt [URL])"
+ echo "| --Falta URL (https://youtu...)"
+ echo $DECOR
+else
+ youtube-dl -F $URL
+ echo $DECOR
+ echo "Selecciona el \"FORMAT CODE\" (formato) que deseas descargar: "
+ read option_user
+ echo $DECOR
+ cd $PATH_DOWNLOAD
+ youtube-dl -f $option_user $URL
+ echo $DECOR
+ echo "Guardado en:"
+ pwd
+ echo $DECOR
+fi
+exit
