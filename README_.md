@@ -1,4 +1,24 @@
 # SCRIPT PERSONALES
+Configuraciones para agilizar los porcesos de
+configuracion cuando se instalan nuevos sistemas operativos Linux.
+
+Scripts creados con el fin de agilizar procesos dentro del sistema operativo.
+
+
+# Configuraciones
+
+## Ubicaciones
+
+| Script - Folder | Ubication |
+| --- | --- |
+| bspwm | $HOME/.config/bspwm |
+| picom | $HOME/.config/picom |
+| polybar | $HOME/.config/polybar |
+| sxhkd | $HOME/.config/sxhkd |
+| .gitconfig | $HOME/.gitconfig |
+| .zshrc | $HOME/.zshrc |
+
+# Scripts
 
 ## `yt` 
  Utiliza la libreria de youtube-dl para descargar musica o videos de youtube de una forma mas simple al comando original.
