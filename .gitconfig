@@ -1,0 +1,7 @@
+[user]
+	email = leonardofhenao.085@gmail.com
+	name = Leonardo henao
+[init]
+	defaultbranch = main
+[pull]
+	rebase = false
