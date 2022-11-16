@@ -76,7 +76,15 @@ DISABLE_LS_COLORS="false"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+	git 
+	copypath 
+	encode64 
+	extract 
+	fast-syntax-highlighting
+	zsh-autosuggestions
+	web-search
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -110,8 +118,6 @@ source $ZSH/oh-my-zsh.sh
 #	Alias personalizados
 ###############################################
 
-alias mvp="cd ~/Disk2/Projects/"
-
 # Abrir visual studio code
 alias code="/opt/VSCode-linux-x64/code"
 
@@ -121,8 +127,21 @@ alias v="nvim"
 # Glava 
 alias gl="glava -m radial"
 
+# Ir a proyectos
+alias mvp="cd ~/Disk2/Projects/"
+
 # Ir a paginas web
 alias mvw="cd /opt/lampp/htdocs"
+
+# Ir a disk2
+alias mvd="cd $HOME/Disk2"
+
+# Ls con iconos
+alias l="logo-ls -oGhtA -T Kitchen"
+alias ll="logo-ls -oGhtA"
+
+# confirm rm 
+alias rm="rm -i"
 
 ###############################################
 
@@ -130,3 +149,4 @@ source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+

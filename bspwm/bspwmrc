@@ -6,6 +6,9 @@ picom -f --daemon --config ~/.config/picom/picom.conf
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
+# Set wallpapers anim
+/home/leohenao/.my-scripts/video_wallpaper/set_wallpaper.sh
+
 # eDP HDMI-A-0 Config monitors
 #bspc monitor -d I II III IV V VI VII VIII IX X
 bspc monitor eDP -d I II III
@@ -31,6 +34,10 @@ bspc rule -a Screenkey manage=off
 # My rules [xprop | grep WM_CLASS] para ver las clases de las apps
 bspc rule -a Pavucontrol state=floating center=on
 bspc rule -a Blueman-manager state=floating center=on
+bspc rule -a io.elementary.calculator state=floating center=on
+bspc rule -a phototonic state=floating center=on
+bspc rule -a vlc state=floating center=on
+#bspc rule -a jetbrains-studio state=floating center=on
 
 # Border
 bspc config focused_border_color        "#6c71c4"
@@ -66,4 +73,8 @@ xsetroot -cursor_name left_ptr &
 
 # Low battery notifier
 ~/.config/bspwm/scripts/low_bat_notifier.sh
+
+# Solved problem with java apps
+wmname LG3D
+export _JAVA_AWT_WM_NONREPARENTING=1
 
