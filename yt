@@ -21,13 +21,13 @@ then
  echo "| --Falta URL (https://youtu...)"
  echo $DECOR
 else
- youtube-dl -F $URL
- echo $DECOR
- echo "Selecciona el \"FORMAT CODE\" (formato) que deseas descargar: "
- read option_user
- echo $DECOR
+ #youtube-dl -F $URL
+ #echo $DECOR
+ #echo "Selecciona el \"FORMAT CODE\" (formato) que deseas descargar: "
+ #read option_user
+ #echo $DECOR
  cd $PATH_DOWNLOAD
- youtube-dl -f $option_user $URL
+ youtube-dl -f 140 $URL
  echo $DECOR
  echo "Guardado en:"
  pwd
