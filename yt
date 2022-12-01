@@ -1,6 +1,7 @@
 #!/bin/bash
 
-URL=$1
+TYPE=$1
+URL=$2
 PATH_DOWNLOAD="yt-downloads"
 DECOR="+----------------------------------+"
 
@@ -14,23 +15,34 @@ else
 fi
 
 # con -z devuelve 0 si la cantidad de caracteres de una cadena es 0
-if [[ -z $URL ]]
+if [[ -z $URL || -z $TYPE ]]
 then
- echo $DECOR
- echo "| Utiliza (yt [URL])"
- echo "| --Falta URL (https://youtu...)"
- echo $DECOR
+	echo $DECOR
+	echo "Utiliza: yt [TYPE] [URL]"
+ 	echo "Example: yt v https://youtube.com/...."
+ 	echo $DECOR
+ 	echo "[TYPE]: v(videos) m(mp3)"
+ 	echo $DECOR
 else
- #youtube-dl -F $URL
- #echo $DECOR
- #echo "Selecciona el \"FORMAT CODE\" (formato) que deseas descargar: "
- #read option_user
- #echo $DECOR
- cd $PATH_DOWNLOAD
- youtube-dl -f 140 $URL
- echo $DECOR
- echo "Guardado en:"
- pwd
- echo $DECOR
+ if [[ $TYPE = v ]]
+ then
+	 youtube-dl -F $URL
+  	 echo $DECOR
+  	 echo "Selecciona el \"FORMAT CODE\" (formato) que deseas descargar: "
+	 read option_user
+	 echo $DECOR
+	 cd $PATH_DOWNLOAD
+	 youtube-dl -f $option_user $URL
+  	 echo $DECOR
+  	 echo "Guardado en:"
+  	 pwd
+ else
+	 cd $PATH_DOWNLOAD
+  	 youtube-dl -f 140 $URL
+  	 echo $DECOR
+   	 echo "Guardado en:"
+  	 pwd
+ 	 echo $DECOR
+ fi
 fi
 exit
