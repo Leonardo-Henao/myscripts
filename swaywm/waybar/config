@@ -8,8 +8,8 @@
 
     "modules-left": [
         //"custom/launcher",
-        "sway/workspaces"
-        // "sway/mode"
+        "sway/workspaces",
+        "sway/mode"
     ],
 
     "modules-center": [

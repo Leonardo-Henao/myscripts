@@ -19,6 +19,10 @@ set $mic_mute $(pactl set-source-mute @DEFAULT_SOURCE@ toggle && pactl get-sourc
 #  set $term-float xfce4-terminal
 set $term-float kitty
 
+# Se importan variables a D-Bus para poder compartir pantalla 
+# https://github.com/emersion/xdg-desktop-portal-wlr 
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
