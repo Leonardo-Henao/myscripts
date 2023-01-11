@@ -12,8 +12,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
-ZSH_THEME="eastwood"
+ZSH_THEME="robbyrussell"
+#ZSH_THEME="eastwood"
 #ZSH_THEME="lambda"
 
 # Set list of themes to pick from when loading at random
@@ -81,7 +81,6 @@ plugins=(
 	copypath 
 	encode64 
 	extract 
-	fast-syntax-highlighting
 	zsh-autosuggestions
 	web-search
 )
@@ -125,28 +124,54 @@ alias code="/opt/VSCode-linux-x64/code"
 alias v="nvim"
 
 # Glava 
-alias gl="glava -m radial"
+#alias gl="glava -m radial"
 
-# Ir a proyectos
-alias mvp="cd ~/Disk2/Projects/"
+# Ir a proyectos del trabajo
+alias mvw="cd /home/leohenao/Disk2/Projects/.work"
+
+# Ir a proyectos personales
+alias mvp="cd /home/leohenao/Disk2/Projects/personal"
 
 # Ir a paginas web
-alias mvw="cd /opt/lampp/htdocs"
+#alias mvw="cd /opt/lampp/htdocs"
 
 # Ir a disk2
 alias mvd="cd $HOME/Disk2"
 
 # Ls con iconos
-alias l="logo-ls -oGhtA -T Kitchen"
-alias ll="logo-ls -oGhtA"
+#alias l="logo-ls -oGhtA -T Kitchen"
+#alias ll="logo-ls -oGhtA"
 
 # confirm rm 
 alias rm="rm -i"
+
+# dotnet alias
+alias dn="dotnet"
 
 ###############################################
 
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# Load Angular CLI autocompletion.
-source <(ng completion script)
+# Variables dotnet
+export DOTNET_ROOT=$HOME/.dotnet
 
+export PATH=$PATH:$HOME/.dotnet:$HOME/.dotnet/tools
+
+# zsh parameter completion for the dotnet CLI
+
+_dotnet_zsh_complete() 
+{
+  local completions=("$(dotnet complete "$words")")
+
+  # If the completion list is empty, just continue with filename selection
+  if [ -z "$completions" ]
+  then
+    _arguments '*::arguments: _normal'
+    return
+  fi
+
+  # This is not a variable assignment, don't remove spaces!
+  _values = "${(ps:\n:)completions}"
+}
+
+compdef _dotnet_zsh_complete dotnet
