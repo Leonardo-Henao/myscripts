@@ -2,22 +2,23 @@
 exec_always ~/.config/sway/scripts/import-gsettings
 
 # Set inner/outer gaps
-gaps inner 2
-gaps outer 0
+gaps inner 4
+gaps outer 2
 
 # Hide titlebar on windows:
-default_border pixel 0
+default_border pixel 2
 
 # Default Font
-font pango:Noto Sans Regular 10
+# font pango:Noto Sans Regular 10
+font pango:Poppins 10
 
 # Thin borders:
 smart_borders on
 
 # Set wallpaper:
 #exec swaybg -i ~/.config/sway/sway.png
-exec swaybg -i ~/Imágenes/wallpapers/mikael-gustafsson-amongtrees-2-8.jpg eDP-1
-exec swaybg -i ~/Imágenes/wallpapers/mikael-gustafsson-amongtrees-2-8.jpg -o HDMI-A-1
+#exec swaybg -i ~/Imágenes/wallpapers/mikael-gustafsson-amongtrees-2-8.jpg eDP-1
+#exec swaybg -i ~/Imágenes/wallpapers/mikael-gustafsson-amongtrees-2-8.jpg -o HDMI-A-1
 
 # Title format for windows
 for_window [shell="xdg_shell"] title_format "%title (%app_id)"
